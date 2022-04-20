@@ -37,7 +37,7 @@ Just Document what you had hoped to achieve and your thoughts behind any unfinis
 
 ### Submitting The Task
 We're not too fussy about how you submit the task, providing it gets to us and we're able to run it we'll be happy however here are some of the ways we commonly see:
-- Add us as a collaborator on your GitHub repo
+- Fork this repo, add us as a collaborator on your GitHub repo and send us a link
 - ZIP the project and email it to us at nick.stewart@thecyberhawk.com
 
 ## Setting Everything Up
