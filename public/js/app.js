@@ -6582,6 +6582,132 @@ var App = function App() {
 
 /***/ }),
 
+/***/ "./resources/js/components/ComponentList.js":
+/*!**************************************************!*\
+  !*** ./resources/js/components/ComponentList.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _dataFetching_appCalls__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../dataFetching/appCalls */ "./resources/js/dataFetching/appCalls.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+function ComponentList(_ref) {
+  var gradeToShow = _ref.gradeToShow,
+      turbineComponents = _ref.turbineComponents;
+
+  var _React$useState = react__WEBPACK_IMPORTED_MODULE_1___default().useState(null),
+      _React$useState2 = _slicedToArray(_React$useState, 2),
+      componentTypes = _React$useState2[0],
+      setComponentTypes = _React$useState2[1];
+
+  function getTurbineComponentsByGrade() {
+    if (gradeToShow[0] === undefined) return [];
+    var targetComponentId = gradeToShow[0].component_id;
+
+    var componentName = function componentName(cpId) {
+      return componentTypes.find(function (type) {
+        return type.id === cpId;
+      }).name;
+    };
+
+    return turbineComponents.filter(function (component) {
+      return component.id === targetComponentId;
+    }).map(function (component) {
+      return {
+        name: componentName(component.component_type_id)
+      };
+    });
+  }
+
+  react__WEBPACK_IMPORTED_MODULE_1___default().useEffect(function () {
+    console.log({
+      turbineComponents: turbineComponents
+    });
+    console.log({
+      gradeToShow: gradeToShow
+    });
+
+    _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+      var _yield$getComponentTy, types;
+
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.prev = 0;
+              _context.next = 3;
+              return (0,_dataFetching_appCalls__WEBPACK_IMPORTED_MODULE_2__.getComponentTypes)();
+
+            case 3:
+              _yield$getComponentTy = _context.sent;
+              types = _yield$getComponentTy.types;
+              setComponentTypes(types);
+              _context.next = 11;
+              break;
+
+            case 8:
+              _context.prev = 8;
+              _context.t0 = _context["catch"](0);
+              console.error('Error fetching data:', _context.t0);
+
+            case 11:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, null, [[0, 8]]);
+    }))();
+  }, []);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("ul", {
+    children: turbineComponents && componentTypes && getTurbineComponentsByGrade().map(function (component) {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
+        children: component.name
+      }, component.name);
+    })
+  });
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ComponentList);
+ComponentList.propTypes = {
+  turbineComponents: prop_types__WEBPACK_IMPORTED_MODULE_4___default().arrayOf((prop_types__WEBPACK_IMPORTED_MODULE_4___default().object)),
+  gradeToShow: prop_types__WEBPACK_IMPORTED_MODULE_4___default().arrayOf((prop_types__WEBPACK_IMPORTED_MODULE_4___default().object))
+};
+
+/***/ }),
+
 /***/ "./resources/js/components/FarmsNav.js":
 /*!*********************************************!*\
   !*** ./resources/js/components/FarmsNav.js ***!
@@ -6704,28 +6830,181 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var _dataFetching_appCalls__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../dataFetching/appCalls */ "./resources/js/dataFetching/appCalls.js");
+/* harmony import */ var _ComponentList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ComponentList */ "./resources/js/components/ComponentList.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
 
 
 
 
 
 function InspectionResults() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
+  var _React$useState = react__WEBPACK_IMPORTED_MODULE_1___default().useState(null),
+      _React$useState2 = _slicedToArray(_React$useState, 2),
+      inspectionResults = _React$useState2[0],
+      setInspectionResults = _React$useState2[1];
+
+  var _React$useState3 = react__WEBPACK_IMPORTED_MODULE_1___default().useState(null),
+      _React$useState4 = _slicedToArray(_React$useState3, 2),
+      acceptableGrade = _React$useState4[0],
+      setAcceptableGrade = _React$useState4[1];
+
+  var _React$useState5 = react__WEBPACK_IMPORTED_MODULE_1___default().useState(null),
+      _React$useState6 = _slicedToArray(_React$useState5, 2),
+      moderateGrade = _React$useState6[0],
+      setModerateGrade = _React$useState6[1];
+
+  var _React$useState7 = react__WEBPACK_IMPORTED_MODULE_1___default().useState(null),
+      _React$useState8 = _slicedToArray(_React$useState7, 2),
+      criticalGrade = _React$useState8[0],
+      setCriticalGrade = _React$useState8[1];
+
+  var _React$useState9 = react__WEBPACK_IMPORTED_MODULE_1___default().useState(null),
+      _React$useState10 = _slicedToArray(_React$useState9, 2),
+      turbineComponents = _React$useState10[0],
+      setTurbineComponents = _React$useState10[1];
+
+  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.useParams)(),
+      windFarmId = _useParams.windFarmId;
+
+  function formatDate(date) {
+    return new Date(date).toDateString();
+  }
+
+  react__WEBPACK_IMPORTED_MODULE_1___default().useEffect(function () {
+    _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+      var _yield$getWindFarmIns, inspections, _yield$getTurbineInsp, grades, _yield$getTurbineComp, components;
+
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.prev = 0;
+              _context.next = 3;
+              return (0,_dataFetching_appCalls__WEBPACK_IMPORTED_MODULE_2__.getWindFarmInspections)(windFarmId);
+
+            case 3:
+              _yield$getWindFarmIns = _context.sent;
+              inspections = _yield$getWindFarmIns.inspections;
+              setInspectionResults(inspections);
+              _context.next = 8;
+              return (0,_dataFetching_appCalls__WEBPACK_IMPORTED_MODULE_2__.getTurbineInspectionsGrade)(inspections.turbine_id);
+
+            case 8:
+              _yield$getTurbineInsp = _context.sent;
+              grades = _yield$getTurbineInsp.grades;
+              setAcceptableGrade(grades.filter(function (grade) {
+                return grade.grade_type_id === 1;
+              }));
+              setModerateGrade(grades.filter(function (grade) {
+                return grade.grade_type_id === 2;
+              }));
+              setCriticalGrade(grades.filter(function (grade) {
+                return grade.grade_type_id === 3;
+              }));
+              _context.next = 15;
+              return (0,_dataFetching_appCalls__WEBPACK_IMPORTED_MODULE_2__.getTurbineComponents)(inspections.turbine_id);
+
+            case 15:
+              _yield$getTurbineComp = _context.sent;
+              components = _yield$getTurbineComp.components;
+              setTurbineComponents(components); // Additional logic or actions after fetching data
+
+              _context.next = 23;
+              break;
+
+            case 20:
+              _context.prev = 20;
+              _context.t0 = _context["catch"](0);
+              console.error('Error fetching data:', _context.t0);
+
+            case 23:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, null, [[0, 20]]);
+    }))();
+  }, [windFarmId]);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
       className: "mb-4",
-      children: "Inspection Results"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        className: "font-bold",
-        children: "Critical"
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        className: "font-bold",
-        children: "Moderate"
+      children: "Inspection Results "
+    }), inspectionResults && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("ul", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
+        children: ["Created at ", formatDate(inspectionResults.created_at)]
+      }, 'date1'), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
+        children: ["Inspected at ", formatDate(inspectionResults.inspected_at)]
+      }, 'date2'), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
+        children: ["Updated at ", formatDate(inspectionResults.updated_at)]
+      }, 'date3')]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      className: "container mx-auto py-8",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        className: "flex flex-wrap -mx-4",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: "w-full md:w-1/3 px-4 mb-8 md:mb-0",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            className: "border border-green-400 p-6 rounded-md shadow-md",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
+              className: "text-2xl text-green-400 font-semibold mb-4",
+              children: "Pass"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_ComponentList__WEBPACK_IMPORTED_MODULE_3__["default"], {
+              gradeToShow: acceptableGrade,
+              turbineComponents: turbineComponents
+            })]
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: "w-full md:w-1/3 px-4 mb-8 md:mb-0",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            className: "border border-amber-600 p-6 rounded-md shadow-md",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
+              className: "text-2xl text-amber-600 font-semibold mb-4",
+              children: "Moderate"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_ComponentList__WEBPACK_IMPORTED_MODULE_3__["default"], {
+              gradeToShow: moderateGrade,
+              turbineComponents: turbineComponents
+            })]
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: "w-full md:w-1/3 px-4 mb-8 md:mb-0",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            className: "border border-red-600 p-6 rounded-md shadow-md",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
+              className: "text-2xl text-red-600 font-semibold mb-4",
+              children: "Critical"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_ComponentList__WEBPACK_IMPORTED_MODULE_3__["default"], {
+              gradeToShow: criticalGrade,
+              turbineComponents: turbineComponents
+            })]
+          })
+        })]
       })
     })]
   });
@@ -6889,7 +7168,7 @@ function Sidebar(_ref) {
       className: 'text-2xl',
       children: "Sidebar Content"
     }), children, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
-      className: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded',
+      className: 'border border-blue-500 hover:bg-blue-700 text-blue-500 font-bold py-2 px-4 rounded',
       onClick: onButtonClick,
       children: "Toggle Sidebar"
     })]
@@ -7010,12 +7289,12 @@ function WindFarmOverview() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     className: "w-1/2 p-4 border-r",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h2", {
-      className: "mb-4",
+      className: "mb-4 text-2xl",
       children: [windFarmData.name, " Wind Farm Overview"]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("ul", {
       children: turbinesData.map(function (turbine) {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
-          children: turbine.name
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("li", {
+          children: [turbine.name, " ", turbine.status]
         }, turbine.name);
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
@@ -7197,6 +7476,10 @@ var WindFarms = function WindFarms() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getComponentTypes": () => (/* binding */ getComponentTypes),
+/* harmony export */   "getTurbineById": () => (/* binding */ getTurbineById),
+/* harmony export */   "getTurbineComponents": () => (/* binding */ getTurbineComponents),
+/* harmony export */   "getTurbineInspectionsGrade": () => (/* binding */ getTurbineInspectionsGrade),
 /* harmony export */   "getWindFarmDataById": () => (/* binding */ getWindFarmDataById),
 /* harmony export */   "getWindFarmInspections": () => (/* binding */ getWindFarmInspections),
 /* harmony export */   "getWindFarmTurbines": () => (/* binding */ getWindFarmTurbines),
@@ -7349,7 +7632,7 @@ function _getWindFarmInspections() {
           case 0:
             _context4.prev = 0;
             _context4.next = 3;
-            return axios__WEBPACK_IMPORTED_MODULE_1___default().get("/api/farms/".concat(windFarmId, "/inspections"));
+            return axios__WEBPACK_IMPORTED_MODULE_1___default().get("/api/inspections/".concat(windFarmId));
 
           case 3:
             response = _context4.sent;
@@ -7375,6 +7658,170 @@ function _getWindFarmInspections() {
     }, _callee4, null, [[0, 8]]);
   }));
   return _getWindFarmInspections.apply(this, arguments);
+}
+
+function getTurbineById(_x4) {
+  return _getTurbineById.apply(this, arguments);
+}
+
+function _getTurbineById() {
+  _getTurbineById = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5(turbineId) {
+    var response, data;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee5$(_context5) {
+      while (1) {
+        switch (_context5.prev = _context5.next) {
+          case 0:
+            _context5.prev = 0;
+            _context5.next = 3;
+            return axios__WEBPACK_IMPORTED_MODULE_1___default().get("/api/turbines/".concat(turbineId, "/inspections"));
+
+          case 3:
+            response = _context5.sent;
+            data = response.data.data;
+            return _context5.abrupt("return", {
+              turbine: data,
+              fetchingError: null
+            });
+
+          case 8:
+            _context5.prev = 8;
+            _context5.t0 = _context5["catch"](0);
+            return _context5.abrupt("return", {
+              turbine: [],
+              fetchingError: _context5.t0
+            });
+
+          case 11:
+          case "end":
+            return _context5.stop();
+        }
+      }
+    }, _callee5, null, [[0, 8]]);
+  }));
+  return _getTurbineById.apply(this, arguments);
+}
+
+function getTurbineInspectionsGrade(_x5) {
+  return _getTurbineInspectionsGrade.apply(this, arguments);
+}
+
+function _getTurbineInspectionsGrade() {
+  _getTurbineInspectionsGrade = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6(turbineId) {
+    var response, data;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee6$(_context6) {
+      while (1) {
+        switch (_context6.prev = _context6.next) {
+          case 0:
+            _context6.prev = 0;
+            _context6.next = 3;
+            return axios__WEBPACK_IMPORTED_MODULE_1___default().get("/api/inspections/".concat(turbineId, "/grades"));
+
+          case 3:
+            response = _context6.sent;
+            data = response.data.data;
+            return _context6.abrupt("return", {
+              grades: data,
+              fetchingError: null
+            });
+
+          case 8:
+            _context6.prev = 8;
+            _context6.t0 = _context6["catch"](0);
+            return _context6.abrupt("return", {
+              grades: [],
+              fetchingError: _context6.t0
+            });
+
+          case 11:
+          case "end":
+            return _context6.stop();
+        }
+      }
+    }, _callee6, null, [[0, 8]]);
+  }));
+  return _getTurbineInspectionsGrade.apply(this, arguments);
+}
+
+function getTurbineComponents(_x6) {
+  return _getTurbineComponents.apply(this, arguments);
+}
+
+function _getTurbineComponents() {
+  _getTurbineComponents = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee7(turbineId) {
+    var response, data;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee7$(_context7) {
+      while (1) {
+        switch (_context7.prev = _context7.next) {
+          case 0:
+            _context7.prev = 0;
+            _context7.next = 3;
+            return axios__WEBPACK_IMPORTED_MODULE_1___default().get("/api/turbines/".concat(turbineId, "/components"));
+
+          case 3:
+            response = _context7.sent;
+            data = response.data.data;
+            return _context7.abrupt("return", {
+              components: data,
+              fetchingError: null
+            });
+
+          case 8:
+            _context7.prev = 8;
+            _context7.t0 = _context7["catch"](0);
+            return _context7.abrupt("return", {
+              components: [],
+              fetchingError: _context7.t0
+            });
+
+          case 11:
+          case "end":
+            return _context7.stop();
+        }
+      }
+    }, _callee7, null, [[0, 8]]);
+  }));
+  return _getTurbineComponents.apply(this, arguments);
+}
+
+function getComponentTypes() {
+  return _getComponentTypes.apply(this, arguments);
+}
+
+function _getComponentTypes() {
+  _getComponentTypes = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee8() {
+    var response, data;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee8$(_context8) {
+      while (1) {
+        switch (_context8.prev = _context8.next) {
+          case 0:
+            _context8.prev = 0;
+            _context8.next = 3;
+            return axios__WEBPACK_IMPORTED_MODULE_1___default().get('/api/component-types');
+
+          case 3:
+            response = _context8.sent;
+            data = response.data.data;
+            return _context8.abrupt("return", {
+              types: data,
+              fetchingError: null
+            });
+
+          case 8:
+            _context8.prev = 8;
+            _context8.t0 = _context8["catch"](0);
+            return _context8.abrupt("return", {
+              types: [],
+              fetchingError: _context8.t0
+            });
+
+          case 11:
+          case "end":
+            return _context8.stop();
+        }
+      }
+    }, _callee8, null, [[0, 8]]);
+  }));
+  return _getComponentTypes.apply(this, arguments);
 }
 
 /***/ }),
