@@ -25,17 +25,20 @@ function WindFarmOverview() {
   }, [windFarmId]);
 
   return <div className="w-1/2 p-4 border-r">
-        <h2 className="mb-4">{windFarmData.name} Wind Farm Overview</h2>
+      <h2 className="mb-4 text-2xl">{windFarmData.name} Wind Farm Overview</h2>
       <ul>
-          {turbinesData.map((turbine) => (<li key={turbine.name}>
-                {turbine.name}
-                </li>))}
+          {turbinesData.map((turbine) => (
+              <li key={turbine.name}>
+                  {turbine.name} {turbine.status}
 
+              </li>
+          ))}
       </ul>
-        {/* SVG illustration of wind turbines */}
-        <div className="mb-4">SVG Illustration (5 Wind Turbines)</div>
-        {/* Other content for the viewport section */}
-    </div>;
+
+      {/* SVG illustration of wind turbines */}
+      <div className="mb-4">SVG Illustration (5 Wind Turbines)</div>
+      {/* Other content for the viewport section */}
+  </div>;
 }
 
 export default WindFarmOverview;
