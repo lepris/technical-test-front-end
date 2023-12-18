@@ -12,7 +12,7 @@ function Sidebar({ children, isSidebarOpen, setSidebarOpen }) {
         <h2 className={'text-2xl'}>Sidebar Content</h2>
 
         {children}
-        <button className={'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'}
+        <button className={'border border-blue-500 hover:bg-blue-700 text-blue-500 font-bold py-2 px-4 rounded'}
             onClick={onButtonClick}
         >
             Toggle Sidebar
